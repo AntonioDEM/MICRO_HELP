@@ -1,0 +1,258 @@
+# Versione 1: Diretta e concisa
+introduzione:
+  title: MicroHelp - Sistema di Help In Linea
+  sections:
+    - heading: Premessa
+      text: |
+        MicroHelp è un sistema di documentazione integrato progettato per creare e visualizzare guide utente interattive direttamente nelle applicazioni Python.
+
+        Basato su una struttura YAML flessibile, offre un modo semplice ma potente per gestire la documentazione del tuo software.
+  
+        E' stato progettato pensando alla semplicità d'uso sia per gli sviluppatori che per gli utenti finali. 
+
+        La documentazione viene scritta in file YAML (help_content.yaml) facilmente modificabili, mentre il sistema di visualizzazione offre 
+        un'esperienza di lettura pulita e professionale.
+
+        Gli sviluppatori possono facilmente integrare MicroHelp nelle proprie applicazioni e mantenere la documentazione aggiornata 
+        senza dover ricompilare il software, mentre gli utenti beneficiano di una guida in linea intuitiva e sempre accessibile.
+    - heading: Struttura Cartelle
+      text: |
+        \code{
+              project_root/
+                    ├── main_window.py
+                    └── abt/
+                        ├── __init__.py
+                        ├── help_window.py
+                        ├── about_window.py
+                        ├── yaml_parser.py
+                        ├── text_formatter.py
+                        ├── list_manager.py
+                        ├── style_manager.py
+                        ├── scroll_handler.py
+                        └── help_content.yaml                            '               
+        }
+        
+    - heading: Caratteristiche principali
+      bullets:
+        - text: "Separazione tabs per argomenti"
+        - text: "Formattazione ricca del testo con supporto per grassetto, corsivo e sottolineato"
+        - text: "Liste multilivello con supporto per numerazione, punti elenco e lettere"
+        - text: "Blocchi di codice con evidenziazione della sintassi"
+        - text: "Link cliccabili per riferimenti esterni"
+        - text: "Sistema di temi integrato (chiaro/scuro)"
+        - text: "Interfaccia utente moderna e reattiva"
+        - text: "Intefaccia interattiva con il software: si puo scrivere interagendo con l'interfaccia principale"
+    - heading: Problemi
+      numbered: 
+        - text: "Ottimizzazione formattazione testo"
+        - text: "Ottimizzazione code e block code e chiusura code e code_block"
+        - text: "Ottimizzazione style_manager"
+        - text: "Ottimizzazione text_manager"
+        - text: "Esternalizzare i setting dei temi con un file custom_theme.json"
+        - text: "altre idee"
+    - heading: Link
+      text: |
+        Clicca qui per visitare il \link{sito di Python}{https://www.python.org}
+
+
+# Versione 2: Con formattazione inline
+codice:
+  title: Esempi di Codice
+  text: Questo è un \textbf{testo in grassetto} senza pipe.
+  sections:
+    - heading: SVG Example
+      text: |
+        Ecco un rettangolo \code{<rect x="10" y="10" width="100" height="50"/>}
+
+        \code{
+          <svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="10" 
+                    width="180" height="80" 
+                    fill="#4CAF50" 
+                    stroke="black" 
+                    stroke-width="2"/>
+              <text x="100" y="55" 
+                    text-anchor="middle" 
+                    fill="white" 
+                    font-family="Arial">
+                  Hello SVG!
+              </text>
+          </svg>
+        }
+
+        Struttura del progetto ASP:
+
+        \code{
+        project_root/
+        ├── src/
+        │   ├── compiler_config.py    # Interfaccia principale
+        │   └── abt/
+        │       ├── __init__.py
+        │       ├── help_window.py    # Gestione finestra help
+        │       ├── yaml_parser.py    # Parser del contenuto YAML
+        │       ├── text_formatter.py # Formattazione del testo
+        │       ├── list_manager.py   # Gestione delle liste
+        │       ├── style_manager.py  # Gestione degli stili
+        │       ├── scroll_handler.py # Gestione dello scrolling
+        │       └── help_content.yaml # Contenuto della guida
+        ├── data/                     # Cartella dati
+        │   ├── settings.json
+        │   ├── recent_configs.json
+        │   └── data.json
+        └── docs/                     # Documentazione
+        }
+
+        \code{
+        # Esempio di utilizzo delle classi:
+        
+        class HelpWindow:
+            def __init__(self, parent):
+                self.yaml_parser = YAMLParser()
+                self.text_formatter = TextFormatter()
+                self.list_manager = ListManager()
+                self.style_manager = StyleManager()
+                
+                # Carica il contenuto
+                self.help_content = self.yaml_parser.load_content(
+                    Path(__file__).parent / 'help_content.yaml'
+                )
+        }
+
+# Versione 3: Multilinea con >
+format1:
+  title: >
+    Questo è un titolo che può
+    andare su più righe ma verrà
+    trattato come singola linea
+  sections:
+    - heading: Test
+      text: >
+        Questo testo può andare
+        su più righe e verrà unito
+        con spazi singoli
+
+format2:
+  title: 
+    Vari tipi di formattazione
+  content: |
+
+        Questo è un paragrafo con \textbf{testo in grassetto} e \textit{testo in corsivo}.
+        Puoi anche \underline{sottolineare} delle parole.
+        
+        le parole sono tutte in \textit{corsivo}.
+
+        le parole sono tutte in \textit{corsivo} può capitare che siano in \textbf{grassetto}.
+
+        le parole sono tutte in \textbf{grassetto} può capitare che siano in \textit{corsivo}.
+
+        Questo è un paragrafo con \textbf{testo in grassetto} e continua sulla prossima linea mantenendo lo stesso paragrafo.
+
+        Questo è un nuovo paragrafo con \textit{testo in corsivo}
+        che continua sulla prossima linea.
+  
+        Questa riga termina con un a capo esplicito
+        Questa inizia su una nuova riga
+
+        \textbf{Questo è in grassetto} \textit{con dentro del corsivo} e ancora grassetto
+
+        Questo è un paragrafo con \textbf{testo in grassetto} e \textit{testo in corsivo}. 
+        Puoi anche \underline{sottolineare} delle parole.
+
+        Questo è un paragrafo con \textbf{testo in grassetto} e
+        continua sulla prossima linea mantenendo lo stesso paragrafo.
+
+        Questo è un nuovo paragrafo con \textit{testo in corsivo}
+        che continua sulla prossima linea.
+  
+        Questa riga termina con un a capo esplicito
+        Questa inizia su una nuova riga
+
+        \textbf{Questo è in grassetto} \textit{con dentro del corsivo} e ancora grassetto
+
+        Vorrei poter scrivere altre pagine
+
+        \textit{Questo è in corsivo} senza il grassetto
+
+        \textbf{Questo è in grassetto} senza il corsivo e ancora grassetto
+
+        \textbf{Questo è in grassetto} senza il corsivo e ancora grassetto
+
+liste:
+  title: Liste Semplificate
+  sections:
+    - heading: Elenchi
+      bullets: [Prima voce, Seconda voce, Terza voce]
+      numbered:
+        - Primo punto numerato
+        - Secondo punto numerato
+        - Terzo punto numerato
+      text: | 
+        Questa parte di codice è sospesa, da migliorare.
+        \code{
+          - heading: "Test liste alfabetiche"
+        alpha_list:
+        - "Primo punto"      
+          - "Sottopunto"    
+            - "Sotto-sottopunto"
+        - "Secondo punto"   
+          - "Altro punto" 
+        }
+    - heading: Prima sezione
+      text: Testo della prima sezione
+      bullets:
+        - Primo punto
+        - Secondo punto
+        - Terzo punto
+# Versione 5: Struttura compatta
+compatto:
+  title: Titolo Compatto
+  sections:
+    - heading: Sezione 1
+      text: Testo sezione 1
+      bullets: [Item 1, Item 2]
+    - heading: Sezione 2
+      text: Testo sezione 2
+      numbered: [Punto 1, Punto 2]
+
+# Versione 6: Con livelli ma senza verbosità
+struttura:
+  title: Livelli Numerati
+  sections:
+    - heading: Livelli
+      numbered:
+        - text: Primo livello
+        - text: Sottolivello
+          level: 1
+        - text: Altro sottolivello
+          level: 1
+    - heading: Sezione con elenchi
+      numbered:
+        - text: Primo punto numerato
+          level: 0
+        - text: Primo sottolivello
+          level: 1
+        - text: Secondo sottolivello
+          level: 2
+        - text: Secondo sottolivello
+          level: 2
+        - text: Secondo punto numerato
+          level: 0
+        - text: Primo sottolivello
+          level: 1
+        - text: Secondo sottolivello
+          level: 2
+        - text: Primo sottolivello
+          level: 1
+
+multiline:
+  title: Titolo Compatto
+  sections:
+    - heading: Sezione 1
+      text: Testo sezione 1
+      bullets: [Item 1, Item 2]
+    - heading: Sezione 2
+      text: Testo sezione 2
+      numbered: [Punto 1, Punto 2]
+    - heading: Sezione 3
+      text: |
+        Testo di prova piu esteso
