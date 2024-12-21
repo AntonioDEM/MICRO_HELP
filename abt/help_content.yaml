@@ -1,0 +1,349 @@
+# ====================================
+# MICROHELP - DOCUMENTAZIONE COMPLETA
+# ====================================
+
+introduzione:
+  title: MicroHelp - Sistema di Help In Linea
+  sections:
+    - heading: Che cos'è MicroHelp
+      text: |
+        MicroHelp è un sistema di documentazione integrato progettato per creare e 
+        visualizzare guide utente interattive direttamente nelle applicazioni Python.
+        
+        Basato su una struttura YAML flessibile, offre un modo semplice ma potente 
+        per gestire la documentazione del tuo software.
+
+    - heading: Caratteristiche Principali
+      bullets:
+        - text: "Interfaccia Moderna e Intuitiva"
+        - text: "Separazione del contenuto in tab per una migliore organizzazione"
+        - text: "Sistema di formattazione ricco e flessibile"
+        - text: "Supporto per vari tipi di liste e livelli di indentazione"
+        - text: "Gestione avanzata dei blocchi di codice"
+        - text: "Sistema di temi personalizzabile"
+
+    - heading: Struttura del Progetto
+      text: |
+        La struttura del progetto è organizzata in modo modulare:
+
+        \codeb{
+        project_root/
+        ├── main_window.py          # Interfaccia principale
+        └── abt/
+            ├── __init__.py
+            ├── help_window.py      # Gestione finestra help
+            ├── about_window.py     # Finestra informazioni
+            ├── yaml_parser.py      # Gestione parsing YAML
+            ├── text_formatter.py   # Formattazione testo
+            ├── list_manager.py     # Gestione liste
+            ├── style_manager.py    # Gestione stili
+            ├── scroll_handler.py   # Gestione scrolling
+            └── help_content.yaml   # Contenuto della guida
+        }
+
+    - heading: Componenti Principali
+      numbered:
+        - text: "YAML Parser"
+          level: 0
+        - text: "Gestisce il caricamento e l'interpretazione dei file YAML"
+          level: 1
+        - text: "Supporta strutture flessibili e nidificate"
+          level: 1
+        - text: "Text Formatter"
+          level: 0
+        - text: "Gestisce la formattazione del testo"
+          level: 1
+        - text: "Supporta tag inline e blocchi di codice"
+          level: 1
+        - text: "List Manager"
+          level: 0
+        - text: "Gestisce liste numerate, puntate e alfabetiche"
+          level: 1
+        - text: "Supporta indentazione multilivello"
+          level: 1
+
+    - heading: Integrazione
+      text: |
+        MicroHelp può essere facilmente integrato in qualsiasi applicazione Python:
+
+        \codeb{
+        from abt.help_window import HelpWindow
+
+        class MainWindow(tk.Tk):
+            def show_help(self):
+                help_window = HelpWindow(self)
+                self.wait_window(help_window.window)
+        }
+
+    - heading: Personalizzazione
+      bullets:
+        - text: "Temi personalizzabili tramite file JSON"
+        - text: "Formattazione del testo configurabile"
+        - text: "Layout adattabile alle esigenze"
+        - text: "Supporto per stili personalizzati"
+
+    - heading: In Sviluppo
+      numbered:
+        - text: "Ottimizzazione delle performance di rendering"
+        - text: "Miglioramento della gestione dei temi"
+        - text: "Espansione delle funzionalità di formattazione"
+        - text: "Supporto per immagini e contenuti multimediali"
+        - text: "Sistema di ricerca integrato"
+
+    - heading: Risorse Utili
+      text: |
+        Per maggiori informazioni sulla sintassi YAML:
+        \link{YAML Documentation}{https://yaml.org/spec/}
+
+        Per la documentazione Python:
+        \link{Python Documentation}{https://docs.python.org/}
+
+# ====================================
+# ESEMPI DI FORMATTAZIONE
+# ====================================
+
+formattazione:
+  title: Guida alla Formattazione
+  sections:
+    - heading: Formattazione Base del Testo
+      text: |
+        # Esempi di formattazione inline:
+        
+        1. Testo in grassetto: \textbf{questo testo è in grassetto}
+        2. Testo in corsivo: \textit{questo testo è in corsivo}
+        3. Testo sottolineato: \underline{questo testo è sottolineato}
+        4. Combinazioni: \textbf{grassetto con \textit{corsivo}} al suo interno
+
+    - heading: Gestione dei Paragrafi
+      text: |
+        Questo è un esempio di come gestire i paragrafi.
+        Questa riga fa parte dello stesso paragrafo perché non c'è riga vuota.
+
+        Questo è un nuovo paragrafo perché è separato da una riga vuota.
+        Ancora parte dello stesso paragrafo.
+
+        Nuovo paragrafo con \textbf{formattazione} \textit{multipla} al suo interno.
+
+    - heading: Liste con Vari Stili
+      text: Esempi di diversi tipi di liste
+      bullets:
+        - text: "Lista puntata semplice"
+        - text: "Altro punto"
+        - text: "Con sottopunti"
+          level: 1
+        - text: "Altro sottopunto"
+          level: 1
+
+      numbered:
+        - text: "Lista numerata primo livello"
+        - text: "Sottopunto numerato"
+          level: 1
+        - text: "Ulteriore livello"
+          level: 2
+        - text: "Ritorno al primo livello"
+        - text: "Altro punto principale"
+
+    - heading: Lista Gerarchica con Lettere
+      alpha_list:
+        - |
+            Primo elemento principale
+            Sottoelemento a.1
+            Dettaglio a.1.1
+            Dettaglio a.1.2
+            Sottoelemento a.2
+        - |
+            Secondo elemento principale
+            Sottoelemento b.1
+            Dettaglio b.1.1
+            Sottoelemento b.2
+
+    - heading: Blocchi di Codice
+      text: |
+        Esempio di codice inline: \code{print("Hello World")}
+
+        Esempio di blocco di codice:
+
+        \codeb{
+        def esempio_funzione():
+            """Esempio di funzione Python"""
+            risultato = []
+            for i in range(5):
+                risultato.append(i * 2)
+            return risultato
+        }
+
+    - heading: Link e Riferimenti
+      text: |
+        1. Link semplice: \link{Python}{https://www.python.org}
+        2. Link con descrizione: \link{Documentazione Python}{https://docs.python.org}
+
+    - heading: Uso dei Raw Tags
+      text: |
+        Per mostrare i comandi senza eseguirli, usare \raw:
+
+        \raw{\textbf{questo non sarà in grassetto}}
+        \raw{\link{questo non sarà un link}{http://example.com}}
+
+    - heading: Combinazioni Complesse
+      text: |
+        Esempio di paragrafo con \textbf{grassetto}, \textit{corsivo}, 
+        \underline{sottolineatura} e un \link{link}{https://example.com} tutto insieme.
+
+        \codeb{
+        # Anche nel codice possiamo avere più righe
+        class Esempio:
+            def __init__(self):
+                self.valore = "test"
+            
+            def metodo(self):
+                return self.valore.upper()
+        }
+
+        E poi continuare con il testo normale.
+
+# ====================================
+# GUIDA AI COMANDI
+# ====================================
+
+comandi:
+  title: Guida Completa ai Comandi Disponibili
+  sections:
+    - heading: Comandi di Formattazione Base
+      text: |
+        Elenco completo dei comandi per la formattazione del testo:
+
+      bullets:
+        - 'Comando \textbf{}: per il grassetto, esempio: \textbf{così}'
+        - 'Comando \textit{}: per il corsivo, esempio: \textit{così}'
+        - 'Comando \underline{}: per sottolineare, esempio: \underline{così}'
+        - 'I comandi possono essere \textbf{nidificati \textit{come questo esempio}}'
+
+    - heading: Comandi Raw
+      text: |
+        Per mostrare i comandi invece di eseguirli:
+
+        1. \raw{\raw{testo}} - Mostra i comandi come testo
+        2. \raw{\escape{testo}} - Alternativa per escapare i comandi
+
+        Esempio di uso raw:
+        \raw{\textbf{questo testo NON sarà in grassetto}
+        \raw{\textit{questo testo NON sarà in corsivo}}
+    - heading: Comandi per il Codice
+      text: |
+        Due modalità per mostrare il codice:
+
+      bullets:
+        - 'Comando \code{}: per codice inline'
+        - 'Esempio: \code{print("Hello World")}'
+        - 'Comando \codeb{}: per blocchi di codice multi-riga'
+      
+      text: |
+        Esempio di codeb:
+
+        \codeb{
+        def example():
+            # Questo è un commento
+            return "Hello World"
+        }
+
+    - heading: Comandi per Link
+      text: |
+        Sintassi per i link:
+        'Comando \link{testo}{url}'
+
+        Esempi:
+        1. Link semplice: \link{Python}{https://www.python.org}
+        2. Link descrittivo: \link{Documentazione}{https://docs.python.org}
+
+# ====================================
+# ESEMPI AVANZATI DI IMPLEMENTAZIONE
+# ====================================
+
+esempi_avanzati:
+  title: Esempi di Implementazione Avanzata
+  sections:
+    - heading: Testo Multilinea con Formattazione
+      text: |
+        Questo è un esempio di testo multilinea con vari tipi di formattazione.
+        Questa riga fa parte dello stesso paragrafo.
+
+        Questo è un nuovo paragrafo che contiene testo \textbf{in grassetto}
+        e anche del testo \textit{in corsivo}. Come puoi vedere, la formattazione
+        funziona su più righe.
+
+        Possiamo anche combinare \textbf{grassetto con \textit{corsivo interno}}
+        e continuare il testo normalmente.
+
+    - heading: Lista Puntata con Descrizioni
+      bullets:
+        - text: |
+            Prima voce della lista con descrizione lunga
+            che continua su più righe. Questo testo farà 
+            parte della stessa voce.
+
+        - text: |
+            Seconda voce con \textbf{testo in grassetto}
+            e formattazione che continua
+            su diverse righe.
+
+        - text: |
+            Terza voce con sottopunti
+          level: 0
+        - text: |
+            Sottopunto con testo lungo che può
+            continuare su più righe mantenendo
+            la corretta indentazione
+          level: 1
+
+    - heading: Lista Numerata con Contenuti Estesi
+      numbered:
+        - text: |
+            Prima voce numerata con testo lungo
+            che si estende su più righe e può includere
+            \textbf{formattazione} e \textit{stili diversi}.
+        
+        - text: |
+            Seconda voce con sottopunti estesi
+          level: 0
+        - text: |
+            Sottopunto 1.1 con descrizione
+            dettagliata che continua su
+            più righe
+          level: 1
+        - text: |
+            Sottopunto 1.2 che include
+            una spiegazione completa del
+            concetto trattato
+          level: 1
+
+    - heading: Combinazione di Elementi - da ottimizzare.
+      text: |
+        Possiamo iniziare con del testo normale che introduce
+        i punti seguenti.
+
+      bullets:
+        - text: |
+            Punto principale con spiegazione
+            dettagliata che può continuare
+            su più righe
+        - text: |
+            Altro punto con \link{link}{https://example.com}
+            e ulteriore testo esplicativo
+
+      text: |
+        Testo intermedio tra le liste che può servire
+        come spiegazione o transizione.
+
+      numbered:
+        - text: |
+            Primo punto numerato con
+            spiegazione estesa
+        - text: |
+            Secondo punto con codice di esempio:
+            \code{print("esempio")}
+            e ulteriori dettagli
+
+      text: |
+        Conclusione della sezione con testo
+        che può estendersi su più righe e
+        includere una \textbf{conclusione importante}.
